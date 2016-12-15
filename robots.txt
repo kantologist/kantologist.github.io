@@ -1,0 +1,4 @@
+Sitemap: http://kantologist.github.io/sitemapindex.xml
+
+User-Agent: *
+Host: kantologist.github.io

@@ -9,9 +9,13 @@
 
 
 .. image:: /images/web.jpg
-   	:scale: 50
+	:height: 400 px
+	:width: 800 px
+   	:scale: 100 %
    	:alt: web image
 	:align: center	
+
+
 
 After much speculation, I eventually decided to have a blog post. I hope to be able to use this as
 
@@ -27,7 +31,7 @@ After much speculation, I eventually decided to have a blog post. I hope to be a
 
 4. etc 
 
-I believe this would be an interesting experience for me and for potential friends. 
+I believe this would be an interesting experience for me and my potential friends. 
  
 	
 

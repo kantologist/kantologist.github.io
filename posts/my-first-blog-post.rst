@@ -8,13 +8,13 @@
 .. type: text
 
 
-.. image:: /images/web.jpg
-	:height: 400 px
-	:width: 800 px
-   	:scale: 100 %
-   	:alt: web image
-	:align: center	
+.. raw:: html
 
+  <div class="container-fluid">
+    <div class="row">
+      <img src="/images/web.jpg" class="img-responsive"> 
+    </div>
+  </div>
 
 
 After much speculation, I eventually decided to have a blog post. I hope to be able to use this as

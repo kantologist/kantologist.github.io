@@ -9,10 +9,11 @@
 
 
 .. image:: /images/web.jpeg
-	:height: 100
+	:height: 200
 	:width: 200
-   	:scale: 50
-   	:alt: web image	
+   	:scale: 100
+   	:alt: web image
+	:align: center	
 
 After much speculation, I eventually decided to have a blog post. I hope to be able to use this as
 

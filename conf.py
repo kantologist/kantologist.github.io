@@ -644,15 +644,15 @@ CACHE_FOLDER = 'cache'
 # "source/" and the results will be located in
 # "OUTPUT_PATH/relative_destination/gallery_name"
 # Default is:
-# GALLERY_FOLDERS = {"galleries": "galleries"}
+GALLERY_FOLDERS = {"galleries": "galleries"}
 # More gallery options:
-# THUMBNAIL_SIZE = 180
+THUMBNAIL_SIZE = 180
 # MAX_IMAGE_SIZE = 1280
-# USE_FILENAME_AS_TITLE = True
-# EXTRA_IMAGE_EXTENSIONS = []
+USE_FILENAME_AS_TITLE = True
+EXTRA_IMAGE_EXTENSIONS = []
 #
 # If set to False, it will sort by filename instead. Defaults to True
-# GALLERY_SORT_BY_DATE = True
+GALLERY_SORT_BY_DATE = True
 
 # If set to True, EXIF data will be copied when an image is thumbnailed or
 # resized. (See also EXIF_WHITELIST)
@@ -709,7 +709,7 @@ CACHE_FOLDER = 'cache'
 # (the thumbnail has ``.thumbnail`` added before the file extension).
 
 IMAGE_FOLDERS = {'images': 'images'}
-# IMAGE_THUMBNAIL_SIZE = 400
+IMAGE_THUMBNAIL_SIZE = 400
 
 # #############################################################################
 # HTML fragments and diverse things that are used by the templates
@@ -803,10 +803,10 @@ IMAGE_FOLDERS = {'images': 'images'}
 # FAVICONS contains (name, file, size) tuples.
 # Used to create favicon link like this:
 # <link rel="name" href="file" sizes="size"/>
-FAVICONS = (
-     ("icon", "/favicon.ico", "16x16"),
-     ("icon", "/icon_128x128.png", "128x128"),
- )
+#FAVICONS = (
+#     ("icon", "/favicon.ico", "16x16"),
+#     ("icon", "/icon_128x128.png", "128x128"),
+# )
 
 # Show teasers (instead of full posts) in indexes? Defaults to False.
 # INDEX_TEASERS = False

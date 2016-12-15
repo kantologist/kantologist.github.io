@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Invent</title><link>http://kantologist.github.io/</link><description>This is like an idea home.</description><atom:link href="http://kantologist.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Thu, 15 Dec 2016 17:49:37 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>My first Blog Post</title><link>http://kantologist.github.io/posts/my-first-blog-post/</link><dc:creator>Oluwafemi Azeez</dc:creator><description>&lt;div&gt;&lt;img alt="web image" class="align-center" src="http://kantologist.github.io/images/web.jpeg" style="width: 200.0px; height: 200.0px;"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Invent</title><link>http://kantologist.github.io/</link><description>This is like an idea home.</description><atom:link href="http://kantologist.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Thu, 15 Dec 2016 17:57:03 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>My first Blog Post</title><link>http://kantologist.github.io/posts/my-first-blog-post/</link><dc:creator>Oluwafemi Azeez</dc:creator><description>&lt;div&gt;&lt;img alt="web image" class="align-center" src="http://kantologist.github.io/images/web.jpg"&gt;
 &lt;p&gt;After much speculation, I eventually decided to have a blog post. I hope to be able to use this as&lt;/p&gt;
-&lt;ul class="simple"&gt;
+&lt;ol class="arabic simple"&gt;
 &lt;li&gt;catalogue of my ideas&lt;/li&gt;
 &lt;li&gt;A window for engaging the people in argumentative and interesting topics in various fields of studies&lt;/li&gt;
-&lt;li&gt;an avenue of teaching stuffs I have learnt that I think others could benefit from.&lt;ul&gt;
+&lt;li&gt;an avenue of teaching stuffs I have learnt that I think others could benefit from.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;ol class="lowerroman simple"&gt;
 &lt;li&gt;I hope to achieve this by the use of jupyter notebook for python tutorials&lt;/li&gt;
 &lt;li&gt;a link to other stuffs should be available as a project navigation item (working on it)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;ol class="arabic simple" start="4"&gt;
 &lt;li&gt;etc&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/ol&gt;
 &lt;p&gt;I believe this would be an interesting experience for me and for potential friends.&lt;/p&gt;&lt;/div&gt;</description><guid>http://kantologist.github.io/posts/my-first-blog-post/</guid><pubDate>Thu, 15 Dec 2016 17:12:29 GMT</pubDate></item></channel></rss>

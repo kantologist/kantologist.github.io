@@ -803,10 +803,10 @@ IMAGE_FOLDERS = {'images': 'images'}
 # FAVICONS contains (name, file, size) tuples.
 # Used to create favicon link like this:
 # <link rel="name" href="file" sizes="size"/>
-# FAVICONS = (
-#     ("icon", "/favicon.ico", "16x16"),
-#     ("icon", "/icon_128x128.png", "128x128"),
-# )
+FAVICONS = (
+     ("icon", "/favicon.ico", "16x16"),
+     ("icon", "/icon_128x128.png", "128x128"),
+ )
 
 # Show teasers (instead of full posts) in indexes? Defaults to False.
 # INDEX_TEASERS = False
@@ -1102,19 +1102,19 @@ SOCIAL_BUTTONS_CODE = """
 # """ % SITE_URL
 #
 # If you prefer a Google search form, here's an example that should just work:
-# SEARCH_FORM = """
-# <!-- Google custom search -->
-# <form method="get" action="https://www.google.com/search" class="navbar-form navbar-right" role="search">
-# <div class="form-group">
-# <input type="text" name="q" class="form-control" placeholder="Search">
-# </div>
-# <button type="submit" class="btn btn-primary">
-# 	<span class="glyphicon glyphicon-search"></span>
-# </button>
-# <input type="hidden" name="sitesearch" value="%s">
-# </form>
-# <!-- End of custom search -->
-# """ % SITE_URL
+SEARCH_FORM = """
+ <!-- Google custom search -->
+ <form method="get" action="https://www.google.com/search" class="navbar-form navbar-right" role="search">
+ <div class="form-group">
+ <input type="text" name="q" class="form-control" placeholder="Search">
+ </div>
+ <button type="submit" class="btn btn-primary">
+ 	<span class="glyphicon glyphicon-search"></span>
+ </button>
+ <input type="hidden" name="sitesearch" value="%s">
+ </form>
+ <!-- End of custom search -->
+ """ % SITE_URL
 
 # Use content distribution networks for jQuery, twitter-bootstrap css and js,
 # and html5shiv (for older versions of Internet Explorer)
@@ -1275,13 +1275,7 @@ GLOBAL_CONTEXT = {
         "icon": "<i class='fa fa-facebook'></i>",
         "target": "_blank"
     },
-	{
-        "url": "https://www.linkedin.com/azeez-oluwafemi",
-        "bgcolor": "#3B5998",
-        "color": "#fffff",
-        "icon": "<i class='fa fa-linkedin'></i>",
-        "target": "_blank"
-    },
+	
     ],
 	'author_avatar': '/images/femi.jpg',
 	

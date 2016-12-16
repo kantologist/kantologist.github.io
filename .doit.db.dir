@@ -88,7 +88,7 @@
 'copy_assets:output/assets/js/ripples.min.js', (42496, 302)
 'copy_assets:output/assets/fonts/fontawesome-webfont.svg', (38912, 328)
 'render_indexes:output/index.html', (109056, 4295)
-'sitemap:output/sitemap.xml', (113664, 1223)
+'sitemap:output/sitemap.xml', (113664, 1224)
 'copy_assets:output/assets/css/ipython.min.css', (48640, 427)
 'copy_assets:output/assets/css/roboto.css.map', (49152, 305)
 'copy_assets:output/assets/js/colorbox-i18n/jquery.colorbox-hu.js', (49664, 487)

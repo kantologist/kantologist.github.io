@@ -36,9 +36,14 @@
 </nav>
 
 <div class="container-fluid main" id="content" role="main">
+		
         <div class="row">
-            <nav  class="col-xs-3 menu">
-                <ul>
+	{{ template_hooks['page_header']() }}
+            <div class="posts-material col-xs-12">
+	<div id="mySidenav" class="sidenav">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div  class="col-xs-3 ">
+                <ul "nav navbar-nav ">
                     {{ base.html_navigation_links() }}
                     {{ template_hooks['menu']() }}
                 </ul>
@@ -51,18 +56,21 @@
                     {% endblock %}
                     {{ template_hooks['menu_alt']() }}
                 </ul>
-            </nav>
+            </div>
+	</div>
 
-            {{ template_hooks['page_header']() }}
-            <div class="posts-material col-xs-9">
+            
+		<button class="btn btn-fab btn-raised btn-material-blue btn-footer pull-left" onclick="openNav()">
+	<i class="glyphicon glyphicon-menu-hamburger"></i>
+	</button>
+		<button class="btn bmd-btn-fab btn-raised btn-material-blue btn-footer pull-right" data-toggle="modal" data-target="#footer-dialog">
+            <i class="mdi-communication-message"></i>
+        </button>
                 <div class="col-xs-12 col-md-11 content-material">
                 {% block content %}{% endblock %}
                 </div>
             </div>
         </div>
-        <button class="btn btn-fab btn-raised btn-material-green btn-footer" data-toggle="modal" data-target="#footer-dialog">
-            <i class="mdi-communication-message"></i>
-        </button>
         <div id="footer-dialog" class="modal fade" tabindex="-1">
           <div class="modal-dialog">
             <div class="modal-content">

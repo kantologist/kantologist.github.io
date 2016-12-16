@@ -290,7 +290,7 @@ COMPILERS = {
 
 # If you want to hide the title of your website (for example, if your logo
 # already contains the text), set this to False.
-# SHOW_BLOG_TITLE = True
+SHOW_BLOG_TITLE = True
 
 # Writes tag cloud data in form of tag_cloud_data.json.
 # Warning: this option will change its default value to False in v8!
@@ -809,7 +809,7 @@ IMAGE_THUMBNAIL_SIZE = 400
 # )
 
 # Show teasers (instead of full posts) in indexes? Defaults to False.
-# INDEX_TEASERS = False
+INDEX_TEASERS = True
 
 # HTML fragments with the Read more... links.
 # The following tags exist and are replaced for you:
@@ -880,12 +880,12 @@ CONTENT_FOOTER_FORMATS = {
 # systems.  The following comment systems are supported by Nikola:
 #   disqus, facebook, googleplus, intensedebate, isso, livefyre, muut
 # You can leave this option blank to disable comments.
-COMMENT_SYSTEM = "facebook"
+COMMENT_SYSTEM = "disqus"
 # And you also need to add your COMMENT_SYSTEM_ID which
 # depends on what comment system you use. The default is
 # "nikolademo" which is a test account for Disqus. More information
 # is in the manual.
-COMMENT_SYSTEM_ID = "1406892332678726"
+#COMMENT_SYSTEM_ID = "1406892332678726"
 
 # Enable annotations using annotateit.org?
 # If set to False, you can still enable them for individual posts and pages
@@ -1017,19 +1017,19 @@ MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite', 'extra']
 # long time). Insert anything you want here, or even make it empty (which is
 # the default right now)
 # (translatable)
-SOCIAL_BUTTONS_CODE = """
- <!-- Social buttons -->
- <div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
- <a class="addthis_button_more">Share</a>
- <ul><li><a class="addthis_button_facebook"></a>
- <li><a class="addthis_button_google_plusone_share"></a>
- <li><a class="addthis_button_linkedin"></a>
- <li><a class="addthis_button_twitter"></a>
- </ul>
- </div>
- <script src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
- <!-- End of social buttons -->
- """
+# SOCIAL_BUTTONS_CODE = """
+# <!-- Social buttons -->
+# <div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+# <a class="addthis_button_more">Share</a>
+# <ul><li><a class="addthis_button_facebook"></a>
+# <li><a class="addthis_button_google_plusone_share"></a>
+# <li><a class="addthis_button_linkedin"></a>
+# <li><a class="addthis_button_twitter"></a>
+# </ul>
+# </div>
+# <script src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+# <!-- End of social buttons -->
+# """
 
 # Show link to source for the posts?
 # Formerly known as HIDE_SOURCELINK (inverse)
@@ -1102,19 +1102,19 @@ SOCIAL_BUTTONS_CODE = """
 # """ % SITE_URL
 #
 # If you prefer a Google search form, here's an example that should just work:
-SEARCH_FORM = """
- <!-- Google custom search -->
- <form method="get" action="https://www.google.com/search" class="navbar-form navbar-right" role="search">
- <div class="form-group">
- <input type="text" name="q" class="form-control" placeholder="Search">
- </div>
- <button type="submit" class="btn btn-primary">
- 	<span class="glyphicon glyphicon-search"></span>
- </button>
- <input type="hidden" name="sitesearch" value="%s">
- </form>
- <!-- End of custom search -->
- """ % SITE_URL
+#SEARCH_FORM = """
+# <!-- Google custom search -->
+# <form method="get" action="https://www.google.com/search" class="navbar-collapse navbar-form navbar-right" role="search">
+# <div class="form-group">
+# <input type="text" name="q" class="form-control" placeholder="Search">
+# </div>
+# <button type="submit" class="btn btn-primary">
+# 	<span class="glyphicon glyphicon-search"></span>
+# </button>
+# <input type="hidden" name="sitesearch" value="%s">
+# </form>
+# <!-- End of custom search -->
+# """ % SITE_URL
 
 # Use content distribution networks for jQuery, twitter-bootstrap css and js,
 # and html5shiv (for older versions of Internet Explorer)
@@ -1178,13 +1178,13 @@ UNSLUGIFY_TITLES = True
 # Uncomment and modify to following lines to match your accounts.
 # Images displayed come from the `previewimage` meta tag.
 # You can specify the card type by using the `card` parameter in TWITTER_CARD.
-# TWITTER_CARD = {
-#     # 'use_twitter_cards': True,  # enable Twitter Cards
-#     # 'card': 'summary',          # Card type, you can also use 'summary_large_image',
-#                                   # see https://dev.twitter.com/cards/types
-#     # 'site': '@website',         # twitter nick for the website
-#     # 'creator': '@username',     # Username for the content creator / author.
-# }
+TWITTER_CARD = {
+      'use_twitter_cards': True,  # enable Twitter Cards
+      'card': 'summary',          # Card type, you can also use 'summary_large_image',
+                                   # see https://dev.twitter.com/cards/types
+      'site': '@azeezfemi17937',         # twitter nick for the website
+      'creator': '@azeezfemi17937',     # Username for the content creator / author.
+ }
 
 # If webassets is installed, bundle JS and CSS into single files to make
 # site loading faster in a HTTP/1.1 environment but is not recommended for
@@ -1275,6 +1275,13 @@ GLOBAL_CONTEXT = {
         "icon": "<i class='fa fa-facebook'></i>",
         "target": "_blank"
     },
+	{
+        "url": "https://ng.linkedin.com/in/azeez-oluwafemi",
+        "bgcolor": "#3B5998",
+        "color": "#fffff",
+        "icon": "<i class='fa fa-linkedin'></i>",
+        "target": "_blank"
+    },	
 	
     ],
 	'author_avatar': '/images/femi.jpg',

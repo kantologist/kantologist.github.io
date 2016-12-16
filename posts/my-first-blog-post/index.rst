@@ -21,7 +21,7 @@ After much speculation, I eventually decided to have a blog post. I hope to be a
 
 1. catalogue of my ideas
 
-2. A window for engaging the people in argumentative and interesting topics in various fields of studies
+2. A window for engaging people in argumentative and interesting topics in various fields of studies
 
 3. an avenue of teaching stuffs I have learnt that I think others could benefit from.
 

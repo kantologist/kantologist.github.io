@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Invent</title><link>http://kantologist.github.io/</link><description>This is like an idea home.</description><atom:link href="http://kantologist.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Thu, 15 Dec 2016 18:19:54 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>My first Blog Post</title><link>http://kantologist.github.io/posts/my-first-blog-post/</link><dc:creator>Oluwafemi Azeez</dc:creator><description>&lt;div&gt;&lt;div class="container-fluid"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Invent</title><link>http://kantologist.github.io/</link><description>This is like an idea home.</description><atom:link href="http://kantologist.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 16 Dec 2016 15:29:52 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>My first Blog Post</title><link>http://kantologist.github.io/posts/my-first-blog-post/</link><dc:creator>Oluwafemi Azeez</dc:creator><description>&lt;div&gt;&lt;div class="container-fluid"&gt;
   &lt;div class="row"&gt;
     &lt;img src="http://kantologist.github.io/images/web.jpg" class="img-responsive"&gt;
   &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;After much speculation, I eventually decided to have a blog post. I hope to be able to use this as&lt;/p&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;catalogue of my ideas&lt;/li&gt;
-&lt;li&gt;A window for engaging the people in argumentative and interesting topics in various fields of studies&lt;/li&gt;
+&lt;li&gt;A window for engaging people in argumentative and interesting topics in various fields of studies&lt;/li&gt;
 &lt;li&gt;an avenue of teaching stuffs I have learnt that I think others could benefit from.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;

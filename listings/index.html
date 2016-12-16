@@ -2,7 +2,6 @@
 <html prefix="
 og: http://ogp.me/ns#
 article: http://ogp.me/ns/article#
-fb: http://ogp.me/ns/fb#
 " lang="en">
 <head>
 <meta charset="utf-8">
@@ -12,7 +11,6 @@ fb: http://ogp.me/ns/fb#
 <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 <link rel="canonical" href="http://kantologist.github.io/listings/">
-<meta property="fb:app_id" content="1406892332678726">
 <!--[if lt IE 9]>
             <script src="../assets/js/html5shiv.min.js"></script>
             <script src="../assets/js/respond.min.js"></script>
@@ -26,19 +24,6 @@ fb: http://ogp.me/ns/fb#
 <nav class="navbar navbar-success header-panel shadow-z-3" role="navigation"><div class="container-fluid">
         <div class="row">
           <div class="col-xs-3">
-                    
- <!-- Google custom search -->
- <form method="get" action="https://www.google.com/search" class="navbar-form navbar-right" role="search">
- <div class="form-group">
- <input type="text" name="q" class="form-control" placeholder="Search">
-</div>
- <button type="submit" class="btn btn-primary">
- 	<span class="glyphicon glyphicon-search"></span>
- </button>
- <input type="hidden" name="sitesearch" value="http://kantologist.github.io/">
-</form>
- <!-- End of custom search -->
- 
             <h1 class="title-blog">
                 <a href="http://kantologist.github.io/">
                         <span id="blog-title">Invent</span>
@@ -49,15 +34,31 @@ fb: http://ogp.me/ns/fb#
       </div>
 <!-- /.container-fluid -->
 </nav><div class="container-fluid main" id="content" role="main">
+		
         <div class="row">
-            <nav class="col-xs-3 menu"><ul>
+	
+            <div class="posts-material col-xs-12">
+	<div id="mySidenav" class="sidenav">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <div class="col-xs-3 ">
+                <ul navbar-nav>
 <li class="withripple"><a href="../archive.html">Archive</a></li>
                 <li class="withripple"><a href="../categories/">Tags</a></li>
                 <li class="withripple"><a href="../rss.xml">RSS feed</a></li>
 
                     
                 </ul>
-<ul class="nav navbar-nav"></ul></nav><div class="posts-material col-xs-9">
+<ul class="nav navbar-nav"></ul>
+</div>
+	</div>
+
+            
+		<button class="btn btn-fab btn-raised btn-material-blue btn-footer pull-left" onclick="openNav()">
+	<i class="glyphicon glyphicon-menu-hamburger"></i>
+	</button>
+		<button class="btn bmd-btn-fab btn-raised btn-material-blue btn-footer pull-right" data-toggle="modal" data-target="#footer-dialog">
+            <i class="mdi-communication-message"></i>
+        </button>
                 <div class="col-xs-12 col-md-11 content-material">
 <nav class="breadcrumbs"><ul class="breadcrumb">
 <li><a href=".">listings</a></li>
@@ -65,9 +66,6 @@ fb: http://ogp.me/ns/fb#
 </div>
             </div>
         </div>
-        <button class="btn btn-fab btn-raised btn-material-green btn-footer" data-toggle="modal" data-target="#footer-dialog">
-            <i class="mdi-communication-message"></i>
-        </button>
         <div id="footer-dialog" class="modal fade" tabindex="-1">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -98,24 +96,7 @@ separated into various fields of studies
         <div class="kc_fab_wrapper"></div>
 </div>
 
-            <script src="../assets/js/all-nocdn.js"></script><!-- Social buttons --><div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
- <a class="addthis_button_more">Share</a>
- <ul>
-<li>
-<a class="addthis_button_facebook"></a>
- </li>
-<li>
-<a class="addthis_button_google_plusone_share"></a>
- </li>
-<li>
-<a class="addthis_button_linkedin"></a>
- </li>
-<li>
-<a class="addthis_button_twitter"></a>
- </li>
-</ul>
-</div>
- <script src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script><!-- End of social buttons --><script>
+            <script src="../assets/js/all-nocdn.js"></script><script src="../assets/js/theme.js"></script><script>
                 var links = [
                         {
                             "bgcolor": "#F44336",
@@ -141,6 +122,13 @@ separated into various fields of studies
                             "target": "_blank",
                             "color": "#fffff",
                             "icon": "<i class='fa fa-facebook'></i>",
+                        },
+                        {
+                            "url": "https://ng.linkedin.com/in/azeez-oluwafemi",
+                            "bgcolor": "#3B5998",
+                            "target": "_blank",
+                            "color": "#fffff",
+                            "icon": "<i class='fa fa-linkedin'></i>",
                         },
                 ];
 

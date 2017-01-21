@@ -1,0 +1,2324 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>data_exploration | Invent</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="http://kantologist.github.io/posts/data_exploration/">
+<!--[if lt IE 9]>
+            <script src="../../assets/js/html5shiv.min.js"></script>
+            <script src="../../assets/js/respond.min.js"></script>
+        <![endif]--><meta name="author" content="Oluwafemi Azeez">
+<link rel="prev" href="../basic_plotting/" title="basic_plotting" type="text/html">
+<link rel="next" href="../descriptive_statistics/" title="descriptive_statistics" type="text/html">
+<meta property="og:site_name" content="Invent">
+<meta property="og:title" content="data_exploration">
+<meta property="og:url" content="http://kantologist.github.io/posts/data_exploration/">
+<meta property="og:description" content="Exploring Data With Pandas¶
+
+
+
+
+
+In [1]:
+
+    
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+pd.set_option('max_columns', 50)
+%matplotlib inline
+
+
+
+
+
+
+
+
+
+
+
+
+Series¶There are t">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-01-21T11:30:24+01:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@azeezfemi17937">
+<meta name="twitter:creator" content="@azeezfemi17937">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-success header-panel shadow-z-3" role="navigation"><div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-3">
+            <h1 class="title-blog">
+                <a href="http://kantologist.github.io/">
+                        <span id="blog-title">Invent</span>
+                    </a>
+            </h1>
+          </div>
+        </div>
+      </div>
+<!-- /.container-fluid -->
+</nav><div class="container-fluid main" id="content" role="main">
+		
+        <div class="row">
+	
+            <div class="posts-material col-xs-12">
+	<div id="mySidenav" class="sidenav">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <div class="col-xs-3 ">
+                <ul navbar-nav>
+<li class="withripple"><a href="../../archive.html">Archive</a></li>
+                <li class="withripple"><a href="../../categories/">Tags</a></li>
+                <li class="withripple"><a href="../../rss.xml">RSS feed</a></li>
+
+                    
+                </ul>
+<ul class="nav navbar-nav"></ul>
+</div>
+	</div>
+
+            
+		<button class="btn btn-fab btn-raised btn-material-blue btn-footer pull-left" onclick="openNav()">
+	<i class="glyphicon glyphicon-menu-hamburger"></i>
+	</button>
+		<button class="btn bmd-btn-fab btn-raised btn-material-blue btn-footer pull-right" data-toggle="modal" data-target="#footer-dialog">
+            <i class="mdi-communication-message"></i>
+        </button>
+                <div class="col-xs-12 col-md-11 content-material">
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">data_exploration</a></h1>
+<hr>
+<div class="metadata">
+            <span class="byline author vcard">
+                <a href=".">
+                        <img class="img-circle" src="../../images/femi.jpg" alt="icon">
+                    Oluwafemi Azeez
+                </a>
+            </span>
+            <span class="dateline">
+                <a href="." rel="bookmark"><i class="mdi-device-access-time"></i>
+                    <time class="published dt-published" datetime="2017-01-21T11:30:24+01:00" itemprop="datePublished" title="2017-01-21 11:30">2017-01-21 11:30</time></a>
+            </span>
+                <span class="commentline">            <a href="#disqus_thread" data-disqus-identifier="cache/posts/data_exploration.html">Comments</a>
+
+</span>
+        </div>
+        
+        <hr></header><div class="e-content entry-content" itemprop="articleBody text">
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Exploring-Data-With-Pandas">Exploring Data With Pandas<a class="anchor-link" href="#Exploring-Data-With-Pandas">¶</a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'max_columns'</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Series">Series<a class="anchor-link" href="#Series">¶</a>
+</h3>
+<p>There are three ways to create a series.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># first method: Involves passing a list without index to pd.</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">'food'</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">'july'</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="s1">'data'</span><span class="p">])</span>
+<span class="nb">print</span> <span class="n">a</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0      food
+1         8
+2      july
+3         9
+4    [2, 3]
+5      data
+dtype: object
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># second method: Involves passing a list of data and a list on index</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">'food'</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">'july'</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="s1">'data'</span><span class="p">],</span> 
+                <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'c'</span><span class="p">,</span> <span class="s1">'d'</span><span class="p">,</span> <span class="s1">'e'</span><span class="p">,</span> <span class="s1">'f'</span><span class="p">])</span>
+<span class="nb">print</span> <span class="n">data</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>a      food
+b         8
+c      july
+d         9
+e    [2, 3]
+f      data
+dtype: object
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># third method: Involves passing a dictionary</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Lagos'</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="s1">'Kaduna'</span><span class="p">:</span> <span class="mi">1300</span><span class="p">,</span> <span class="s1">'Abuja'</span><span class="p">:</span> <span class="mi">900</span><span class="p">,</span> <span class="s1">'Anambra'</span><span class="p">:</span> <span class="mi">1100</span><span class="p">,</span>
+     <span class="s1">'Plateau'</span><span class="p">:</span> <span class="mi">450</span><span class="p">,</span> <span class="s1">'Ebonyi'</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+<span class="n">states</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">states</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Abuja       900.0
+Anambra    1100.0
+Ebonyi        NaN
+Kaduna     1300.0
+Lagos      1000.0
+Plateau     450.0
+dtype: float64
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="One-can-basically-perform-any-operations-on-the-series-like-a-numpy-array.">One can basically perform any operations on the series like a numpy array.<a class="anchor-link" href="#One-can-basically-perform-any-operations-on-the-series-like-a-numpy-array.">¶</a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="n">states</span><span class="p">[</span><span class="s1">'Lagos'</span><span class="p">]</span>  <span class="c1"># index with dictionary keys</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1000.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="n">states</span><span class="p">[</span><span class="n">states</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">]</span>  <span class="c1"># boolean indexing</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Anambra    1100.0
+Kaduna     1300.0
+dtype: float64
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="n">states</span> <span class="o">&gt;</span> <span class="mi">1000</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Abuja      False
+Anambra     True
+Ebonyi     False
+Kaduna      True
+Lagos      False
+Plateau    False
+dtype: bool
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="s1">'Abuja'</span> <span class="ow">in</span> <span class="n">states</span>  <span class="c1"># check for membership</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>True
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="n">states</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span>  <span class="c1"># check for availablility of values</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Abuja       True
+Anambra     True
+Ebonyi     False
+Kaduna      True
+Lagos       True
+Plateau     True
+dtype: bool
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="n">states</span><span class="p">[</span><span class="n">states</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>   <span class="c1"># expose null states</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Ebonyi   NaN
+dtype: float64
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="DataFrame">DataFrame<a class="anchor-link" href="#DataFrame">¶</a>
+</h2>
+<h4 id="It's-basically-a-table-like-structure.-It-has-rows-and-columns.">It's basically a table-like structure. It has rows and columns.<a class="anchor-link" href="#It's-basically-a-table-like-structure.-It-has-rows-and-columns.">¶</a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="How-are-DataFrames-birthed">How are DataFrames birthed<a class="anchor-link" href="#How-are-DataFrames-birthed">¶</a>
+</h3>
+<h4 id="Let's-explore-some-of-the-ways-we-can-read-in-data.">Let's explore some of the ways we can read in data.<a class="anchor-link" href="#Let's-explore-some-of-the-ways-we-can-read-in-data.">¶</a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># we can create a new dataframe</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'year'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1986</span><span class="p">,</span> <span class="mi">1990</span><span class="p">,</span> <span class="mi">1994</span><span class="p">,</span> <span class="mi">1998</span><span class="p">,</span> <span class="mi">2002</span><span class="p">,</span> <span class="mi">2006</span><span class="p">,</span> <span class="mi">2011</span><span class="p">,</span> <span class="mi">2014</span><span class="p">],</span>
+        <span class="s1">'team'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Argentina'</span><span class="p">,</span> <span class="s1">'Germany'</span><span class="p">,</span> <span class="s1">'Brazil'</span><span class="p">,</span> <span class="s1">'France'</span><span class="p">,</span> <span class="s1">'Brazil'</span><span class="p">,</span> <span class="s1">'Italy'</span><span class="p">,</span> <span class="s1">'Spain'</span><span class="p">,</span> <span class="s1">'Germany'</span><span class="p">],</span>
+        <span class="s1">'goal_for'</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="s1">'goal_against'</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]}</span>
+<span class="n">soccer</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'year'</span><span class="p">,</span> <span class="s1">'team'</span><span class="p">,</span> <span class="s1">'goal_for'</span><span class="p">,</span> <span class="s1">'goal_against'</span><span class="p">])</span>
+<span class="n">soccer</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[25]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>year</th>
+      <th>team</th>
+      <th>goal_for</th>
+      <th>goal_against</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>1986</td>
+      <td>Argentina</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>1990</td>
+      <td>Germany</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>1994</td>
+      <td>Brazil</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>1998</td>
+      <td>France</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+<tr>
+<th>4</th>
+      <td>2002</td>
+      <td>Brazil</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+<tr>
+<th>5</th>
+      <td>2006</td>
+      <td>Italy</td>
+      <td>5</td>
+      <td>3</td>
+    </tr>
+<tr>
+<th>6</th>
+      <td>2011</td>
+      <td>Spain</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+<tr>
+<th>7</th>
+      <td>2014</td>
+      <td>Germany</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">from_csv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'Secondary.csv'</span><span class="p">)</span>
+<span class="n">from_csv</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[26]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>Name of School</th>
+      <th>LGA</th>
+      <th>Ownership</th>
+      <th>Type of School</th>
+      <th>Email</th>
+      <th>Phone Numbers</th>
+      <th>Link</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>ALTERNATIVE HIGH SCHOOL FOR GIRLS, Agboju</td>
+      <td>State owned</td>
+      <td>Amuwo-Odofin</td>
+      <td>Secondary</td>
+      <td>altergirlssc@lagosschoolsonline.com</td>
+      <td>08037218349</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>A &amp; T COLLEGE, Tabon-Tabon</td>
+      <td>Privately owned</td>
+      <td>Agege</td>
+      <td>Secondary</td>
+      <td></td>
+      <td>0803 385 4578,  0803 325 8098</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>A P COLLEGE,  Ejigbo</td>
+      <td>Privately owned</td>
+      <td>Oshodi-Isolo</td>
+      <td>Secondary</td>
+      <td>anyebe_peter@yahoo.com</td>
+      <td>0805 193 2373,   0806 683 7468</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>A-U-D JUNIOR COMPREHENSIVE HIGH SCHOOL</td>
+      <td>State owned</td>
+      <td>Oshodi-Isolo</td>
+      <td>Secondary</td>
+      <td>okotaaudjnr@yahoo.com</td>
+      <td>0802 033 0476</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>4</th>
+      <td>A-U-D JUNIOR GRAMMAR SCHOOL</td>
+      <td>State owned</td>
+      <td>Oshodi-Isolo</td>
+      <td>Secondary</td>
+      <td></td>
+      <td>08023509792</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="So-let's-write-to-excel-and-also-read-from-excel.-This-might-require-installing-xlrd,-so-let's-do-pip-install-xlrd">So let's write to excel and also read from excel. This might require installing xlrd, so let's do pip install xlrd<a class="anchor-link" href="#So-let's-write-to-excel-and-also-read-from-excel.-This-might-require-installing-xlrd,-so-let's-do-pip-install-xlrd">¶</a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soccer</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[27]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>year</th>
+      <th>team</th>
+      <th>goal_for</th>
+      <th>goal_against</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>1986</td>
+      <td>Argentina</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>1990</td>
+      <td>Germany</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>1994</td>
+      <td>Brazil</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>1998</td>
+      <td>France</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+<tr>
+<th>4</th>
+      <td>2002</td>
+      <td>Brazil</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soccer</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">'soccer.xlsx'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">del</span> <span class="n">soccer</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soccer</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">'soccer.xlsx'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soccer</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[31]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>year</th>
+      <th>team</th>
+      <th>goal_for</th>
+      <th>goal_against</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>1986</td>
+      <td>Argentina</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>1990</td>
+      <td>Germany</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>1994</td>
+      <td>Brazil</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>1998</td>
+      <td>France</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+<tr>
+<th>4</th>
+      <td>2002</td>
+      <td>Brazil</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Reading-From-SQL-database">Reading From SQL database<a class="anchor-link" href="#Reading-From-SQL-database">¶</a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">basedir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pandas.io</span> <span class="k">import</span> <span class="n">sql</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="c1">#conn = sqlite3.connect('sqlite:////' + os.path.join(basedir, 'data.sqlite'))</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">'data.sqlite'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [45]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soccer</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'test'</span><span class="p">,</span><span class="n">con</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [49]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">"SELECT * FROM test"</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[49]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>index</th>
+      <th>year</th>
+      <th>team</th>
+      <th>goal_for</th>
+      <th>goal_against</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>0</td>
+      <td>1986</td>
+      <td>Argentina</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>1</td>
+      <td>1990</td>
+      <td>Germany</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>2</td>
+      <td>1994</td>
+      <td>Brazil</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>3</td>
+      <td>1998</td>
+      <td>France</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+<tr>
+<th>4</th>
+      <td>4</td>
+      <td>2002</td>
+      <td>Brazil</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Read-data-from-url">Read data from url<a class="anchor-link" href="#Read-data-from-url">¶</a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [50]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">'https://raw.githubusercontent.com/kantologist/abuja_schools/master/data/international-schools.csv'</span>
+<span class="n">from_url</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">from_url</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[50]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>Name of School</th>
+      <th>School Description</th>
+      <th>Type of School</th>
+      <th>Address</th>
+      <th>Phone Numbers</th>
+      <th>School Website</th>
+      <th>Link</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>Aduvie International School</td>
+      <td>Aduvie International School offers educational...</td>
+      <td>international-schools</td>
+      <td>Plot 273, BO8, Cadastral Zone, Jahi District, ...</td>
+      <td>0808 939 4474</td>
+      <td>=HYPERLINK("http://www.aduvieinternationalscho...</td>
+      <td>=HYPERLINK("http://www.finelib.com/listing/Adu...</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>British Canadian International Education</td>
+      <td>BCIE is a reputable independent organisation t...</td>
+      <td>international-schools</td>
+      <td>24B, Djibouti Crescent, 5th House after Zartec...</td>
+      <td>0817-149-5402, 0909-347-8930, 0806-678-8636</td>
+      <td>=HYPERLINK("http://www.bcie.co.uk/offices/nige...</td>
+      <td>=HYPERLINK("http://www.finelib.com/listing/Bri...</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>Center for Teaching &amp; Learning (CTL)</td>
+      <td>CTL Academy is an international school offerin...</td>
+      <td>international-schools</td>
+      <td>2, Oladunni Ayandipo Close, Katampe Extension,...</td>
+      <td>0818 194 6446, 0703 514 7277</td>
+      <td>=HYPERLINK("http://www.ctlacademy.org/","Visit...</td>
+      <td>=HYPERLINK("http://www.finelib.com/listing/Cen...</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>Efab International School</td>
+      <td>Efab International School provides educational...</td>
+      <td>international-schools</td>
+      <td>Along 2nd Avenue, Efab City Estate, Mbora, Abu...</td>
+      <td>0817 490 9071</td>
+      <td>=HYPERLINK("http://www.efabintlschool.com/","V...</td>
+      <td>=HYPERLINK("http://www.finelib.com/listing/Efa...</td>
+    </tr>
+<tr>
+<th>4</th>
+      <td>FAMAKS International School</td>
+      <td>FAMAKS International School provides education...</td>
+      <td>international-schools</td>
+      <td>8, Adekunle Fajyi Close, Off Ajayi Crowther St...</td>
+      <td>0808 305 1079</td>
+      <td>=HYPERLINK("http://www.famakschools.com/","Vis...</td>
+      <td>=HYPERLINK("http://www.finelib.com/listing/FAM...</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="So-let's-explore-a-sample-data.-Lagos-Schools">So let's explore a sample data. Lagos Schools<a class="anchor-link" href="#So-let's-explore-a-sample-data.-Lagos-Schools">¶</a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [52]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">schools</span> <span class="o">=</span> <span class="n">from_csv</span>
+<span class="n">schools</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[52]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>Name of School</th>
+      <th>LGA</th>
+      <th>Ownership</th>
+      <th>Type of School</th>
+      <th>Email</th>
+      <th>Phone Numbers</th>
+      <th>Link</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>ALTERNATIVE HIGH SCHOOL FOR GIRLS, Agboju</td>
+      <td>State owned</td>
+      <td>Amuwo-Odofin</td>
+      <td>Secondary</td>
+      <td>altergirlssc@lagosschoolsonline.com</td>
+      <td>08037218349</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>A &amp; T COLLEGE, Tabon-Tabon</td>
+      <td>Privately owned</td>
+      <td>Agege</td>
+      <td>Secondary</td>
+      <td></td>
+      <td>0803 385 4578,  0803 325 8098</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>A P COLLEGE,  Ejigbo</td>
+      <td>Privately owned</td>
+      <td>Oshodi-Isolo</td>
+      <td>Secondary</td>
+      <td>anyebe_peter@yahoo.com</td>
+      <td>0805 193 2373,   0806 683 7468</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>A-U-D JUNIOR COMPREHENSIVE HIGH SCHOOL</td>
+      <td>State owned</td>
+      <td>Oshodi-Isolo</td>
+      <td>Secondary</td>
+      <td>okotaaudjnr@yahoo.com</td>
+      <td>0802 033 0476</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>4</th>
+      <td>A-U-D JUNIOR GRAMMAR SCHOOL</td>
+      <td>State owned</td>
+      <td>Oshodi-Isolo</td>
+      <td>Secondary</td>
+      <td></td>
+      <td>08023509792</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [53]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">schools</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>   <span class="c1"># data inspection</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 2098 entries, 0 to 2097
+Data columns (total 7 columns):
+Name of School    2098 non-null object
+LGA               2098 non-null object
+Ownership         2083 non-null object
+Type of School    2098 non-null object
+Email             2097 non-null object
+Phone Numbers     2098 non-null object
+Link              2098 non-null object
+dtypes: object(7)
+memory usage: 114.8+ KB
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [54]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">schools</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[54]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Name of School    object
+LGA               object
+Ownership         object
+Type of School    object
+Email             object
+Phone Numbers     object
+Link              object
+dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [56]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">schools</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[56]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>Name of School</th>
+      <th>LGA</th>
+      <th>Ownership</th>
+      <th>Type of School</th>
+      <th>Email</th>
+      <th>Phone Numbers</th>
+      <th>Link</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>count</th>
+      <td>2098</td>
+      <td>2098</td>
+      <td>2083</td>
+      <td>2098</td>
+      <td>2097</td>
+      <td>2098</td>
+      <td>2098</td>
+    </tr>
+<tr>
+<th>unique</th>
+      <td>1699</td>
+      <td>7</td>
+      <td>26</td>
+      <td>2</td>
+      <td>1351</td>
+      <td>1686</td>
+      <td>1708</td>
+    </tr>
+<tr>
+<th>top</th>
+      <td>COMMUNITY JUNIOR SECONDARY SCHOOL</td>
+      <td>Privately owned</td>
+      <td>Alimosho</td>
+      <td>Secondary</td>
+      <td></td>
+      <td></td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>freq</th>
+      <td>4</td>
+      <td>1166</td>
+      <td>386</td>
+      <td>2097</td>
+      <td>418</td>
+      <td>7</td>
+      <td>2</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [57]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">schools</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[57]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>Name of School</th>
+      <th>LGA</th>
+      <th>Ownership</th>
+      <th>Type of School</th>
+      <th>Email</th>
+      <th>Phone Numbers</th>
+      <th>Link</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>ALTERNATIVE HIGH SCHOOL FOR GIRLS, Agboju</td>
+      <td>State owned</td>
+      <td>Amuwo-Odofin</td>
+      <td>Secondary</td>
+      <td>altergirlssc@lagosschoolsonline.com</td>
+      <td>08037218349</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>A &amp; T COLLEGE, Tabon-Tabon</td>
+      <td>Privately owned</td>
+      <td>Agege</td>
+      <td>Secondary</td>
+      <td></td>
+      <td>0803 385 4578,  0803 325 8098</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>A P COLLEGE,  Ejigbo</td>
+      <td>Privately owned</td>
+      <td>Oshodi-Isolo</td>
+      <td>Secondary</td>
+      <td>anyebe_peter@yahoo.com</td>
+      <td>0805 193 2373,   0806 683 7468</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>A-U-D JUNIOR COMPREHENSIVE HIGH SCHOOL</td>
+      <td>State owned</td>
+      <td>Oshodi-Isolo</td>
+      <td>Secondary</td>
+      <td>okotaaudjnr@yahoo.com</td>
+      <td>0802 033 0476</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>4</th>
+      <td>A-U-D JUNIOR GRAMMAR SCHOOL</td>
+      <td>State owned</td>
+      <td>Oshodi-Isolo</td>
+      <td>Secondary</td>
+      <td></td>
+      <td>08023509792</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [58]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">schools</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[58]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>Name of School</th>
+      <th>LGA</th>
+      <th>Ownership</th>
+      <th>Type of School</th>
+      <th>Email</th>
+      <th>Phone Numbers</th>
+      <th>Link</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>2095</th>
+      <td>DAMTOSE COLLEGE, Alakuko</td>
+      <td>Privately owned</td>
+      <td>Ifako/Ijaiye</td>
+      <td>Secondary</td>
+      <td>damtose-schools@yahoo.com</td>
+      <td>0802 949 2237, 0812 917 5576</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>2096</th>
+      <td>DANMARTINS COLLEGE, Alagbado</td>
+      <td>Privately owned</td>
+      <td>Alimosho</td>
+      <td>Secondary</td>
+      <td>danmartins 43@yahoo.com, akestlabinternationa...</td>
+      <td>0802 307 8222, 0805 302 8289,  0803 070 0944</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>2097</th>
+      <td>DANSOL HIGH SCHOOL, Ikeja</td>
+      <td>Privately owned</td>
+      <td>Ikeja</td>
+      <td>Secondary</td>
+      <td>dansolhighschool@yahoo.co.uk</td>
+      <td>0805 869 7186,  0802 932 7843,   0802 343 870...</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [59]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">schools</span><span class="p">[</span><span class="mi">200</span><span class="p">:</span><span class="mi">205</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[59]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>Name of School</th>
+      <th>LGA</th>
+      <th>Ownership</th>
+      <th>Type of School</th>
+      <th>Email</th>
+      <th>Phone Numbers</th>
+      <th>Link</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>200</th>
+      <td>AYANGBUREN SENIOR HIGH SCHOOL</td>
+      <td>State owned</td>
+      <td>Ikorodu</td>
+      <td>Secondary</td>
+      <td>gburensnrsch@lagosschoolsonline.com</td>
+      <td>0802-327-0643</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>201</th>
+      <td>AYEDERE AJIBOLA JUNIOR HIGH SCHOOL, Ketu</td>
+      <td>State owned</td>
+      <td>Kosofe</td>
+      <td>Secondary</td>
+      <td>ayeajijunior@lagosschoolsonline.com</td>
+      <td>0803-074 3806</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>202</th>
+      <td>AYEDERE AJIBOLA SENIOR HIGH SCHOOL, Ketu</td>
+      <td>State owned</td>
+      <td>Kosofe</td>
+      <td>Secondary</td>
+      <td>ayederesnr@lagosschoolsonline.com</td>
+      <td>0803 373 2921</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>203</th>
+      <td>AYO-OLUSEUN COLLEGE, Alapere</td>
+      <td>Privately owned</td>
+      <td>Kosofe</td>
+      <td>Secondary</td>
+      <td></td>
+      <td>0702 808 1787,     0802 339 9150</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>204</th>
+      <td>AYOBAMI COLLEGE, Egan-Igando</td>
+      <td>Privately owned</td>
+      <td>Alimosho</td>
+      <td>Secondary</td>
+      <td>ayobami/pschool@yahoo.com</td>
+      <td>0802 303 5154</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="oops!--LGA-and-Ownership-are-mixed-up.-Let's-fix-that.">oops!  LGA and Ownership are mixed up. Let's fix that.<a class="anchor-link" href="#oops!--LGA-and-Ownership-are-mixed-up.-Let's-fix-that.">¶</a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [75]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">schools</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[75]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index([u'Name of School', u'LGA', u'Ownership', u'Type of School', u'Email',
+       u'Phone Numbers', u'Link'],
+      dtype='object')</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [83]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">schools</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span> <span class="p">{</span><span class="s1">'LGA'</span><span class="p">:</span><span class="s1">'Ownership'</span><span class="p">,</span> <span class="s1">'Ownership'</span><span class="p">:</span><span class="s1">'LGA'</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span>
+<span class="n">schools</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[83]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index([u'Name of School', u'Ownership', u'LGA', u'Type of School', u'Email',
+       u'Phone Numbers', u'Link'],
+      dtype='object')</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [85]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">schools</span><span class="p">[</span><span class="s1">'Ownership'</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[85]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0        State owned
+1    Privately owned
+2    Privately owned
+3        State owned
+4        State owned
+Name: Ownership, dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [86]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">schools</span><span class="p">[[</span><span class="s1">'LGA'</span><span class="p">,</span> <span class="s1">'Ownership'</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[86]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>LGA</th>
+      <th>Ownership</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>Amuwo-Odofin</td>
+      <td>State owned</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>Agege</td>
+      <td>Privately owned</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>Oshodi-Isolo</td>
+      <td>Privately owned</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>Oshodi-Isolo</td>
+      <td>State owned</td>
+    </tr>
+<tr>
+<th>4</th>
+      <td>Oshodi-Isolo</td>
+      <td>State owned</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [88]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">schools</span><span class="p">[(</span><span class="n">schools</span><span class="o">.</span><span class="n">Ownership</span> <span class="o">==</span> <span class="s1">'State owned'</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[88]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>Name of School</th>
+      <th>Ownership</th>
+      <th>LGA</th>
+      <th>Type of School</th>
+      <th>Email</th>
+      <th>Phone Numbers</th>
+      <th>Link</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>ALTERNATIVE HIGH SCHOOL FOR GIRLS, Agboju</td>
+      <td>State owned</td>
+      <td>Amuwo-Odofin</td>
+      <td>Secondary</td>
+      <td>altergirlssc@lagosschoolsonline.com</td>
+      <td>08037218349</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>A-U-D JUNIOR COMPREHENSIVE HIGH SCHOOL</td>
+      <td>State owned</td>
+      <td>Oshodi-Isolo</td>
+      <td>Secondary</td>
+      <td>okotaaudjnr@yahoo.com</td>
+      <td>0802 033 0476</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>4</th>
+      <td>A-U-D JUNIOR GRAMMAR SCHOOL</td>
+      <td>State owned</td>
+      <td>Oshodi-Isolo</td>
+      <td>Secondary</td>
+      <td></td>
+      <td>08023509792</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [90]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">schools</span><span class="p">[(</span><span class="n">schools</span><span class="o">.</span><span class="n">Ownership</span> <span class="o">==</span> <span class="s1">'State owned'</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">schools</span><span class="o">.</span><span class="n">LGA</span> <span class="o">==</span> <span class="s1">'Oshodi-Isolo'</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[90]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>Name of School</th>
+      <th>Ownership</th>
+      <th>LGA</th>
+      <th>Type of School</th>
+      <th>Email</th>
+      <th>Phone Numbers</th>
+      <th>Link</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>3</th>
+      <td>A-U-D JUNIOR COMPREHENSIVE HIGH SCHOOL</td>
+      <td>State owned</td>
+      <td>Oshodi-Isolo</td>
+      <td>Secondary</td>
+      <td>okotaaudjnr@yahoo.com</td>
+      <td>0802 033 0476</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>4</th>
+      <td>A-U-D JUNIOR GRAMMAR SCHOOL</td>
+      <td>State owned</td>
+      <td>Oshodi-Isolo</td>
+      <td>Secondary</td>
+      <td></td>
+      <td>08023509792</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>9</th>
+      <td>A.U.D. COMPREHENSIVE JUNIOR HIGH SCHOOL</td>
+      <td>State owned</td>
+      <td>Oshodi-Isolo</td>
+      <td>Secondary</td>
+      <td>audcomp@lagosschoolsonline.com</td>
+      <td>0802 033 0476</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [91]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">schools</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">300</span><span class="p">]]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[91]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>Name of School</th>
+      <th>Ownership</th>
+      <th>LGA</th>
+      <th>Type of School</th>
+      <th>Email</th>
+      <th>Phone Numbers</th>
+      <th>Link</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>ALTERNATIVE HIGH SCHOOL FOR GIRLS, Agboju</td>
+      <td>State owned</td>
+      <td>Amuwo-Odofin</td>
+      <td>Secondary</td>
+      <td>altergirlssc@lagosschoolsonline.com</td>
+      <td>08037218349</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>78</th>
+      <td>AJUNMONI SENIOR SECONDARY SCHOOL, Mushin</td>
+      <td>State owned</td>
+      <td>Mushin</td>
+      <td>Secondary</td>
+      <td>ajumoni2014@lagosschoolsonline.com</td>
+      <td>0802-3166-414</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+<tr>
+<th>300</th>
+      <td>CARRINTON COLLEGE, Ajao Estate</td>
+      <td>Privately owned</td>
+      <td>Oshodi-Isolo</td>
+      <td>Secondary</td>
+      <td>archwood.school@yahoo.com</td>
+      <td>0803 305 5394, 0811 716 5698</td>
+      <td>=HYPERLINK("http://www.lagosschoolsonline.com/...</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [93]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">schools</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'LGA'</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[93]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+      <th>Name of School</th>
+      <th>Ownership</th>
+      <th>Type of School</th>
+      <th>Email</th>
+      <th>Phone Numbers</th>
+      <th>Link</th>
+    </tr>
+<tr>
+<th>LGA</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+<th>Badagry</th>
+      <td>71</td>
+      <td>71</td>
+      <td>71</td>
+      <td>71</td>
+      <td>71</td>
+      <td>71</td>
+    </tr>
+<tr>
+<th>Ibeju-Lekki</th>
+      <td>34</td>
+      <td>34</td>
+      <td>34</td>
+      <td>34</td>
+      <td>34</td>
+      <td>34</td>
+    </tr>
+<tr>
+<th>Ikeja</th>
+      <td>71</td>
+      <td>71</td>
+      <td>71</td>
+      <td>71</td>
+      <td>71</td>
+      <td>71</td>
+    </tr>
+<tr>
+<th>Mushin</th>
+      <td>86</td>
+      <td>86</td>
+      <td>86</td>
+      <td>86</td>
+      <td>86</td>
+      <td>86</td>
+    </tr>
+<tr>
+<th>Shomolu</th>
+      <td>53</td>
+      <td>53</td>
+      <td>53</td>
+      <td>53</td>
+      <td>53</td>
+      <td>53</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [94]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">schools</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'LGA'</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[94]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>LGA
+Mushin            6
+Ojo             156
+Oshodi-Isolo    157
+Ownership         1
+Surulere        145
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="End-For-now">End For now<a class="anchor-link" href="#End-For-now">¶</a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Reference">Reference<a class="anchor-link" href="#Reference">¶</a>
+</h3>
+<ol>
+<li><a href="http://www.gregreda.com/2013/10/26/working-with-pandas-dataframes/">Greg Reda's blog</a></li>
+</ol>
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+    </div>
+    <aside class="postpromonav"><nav><ul class="pager">
+<li class="previous">
+                <a href="../basic_plotting/" rel="prev" title="basic_plotting">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../descriptive_statistics/" rel="next" title="descriptive_statistics">Next post</a>
+            </li>
+        </ul></nav></aside><section class="comments"><h2>
+<i class="mdi-communication-forum"></i>Comments</h2>
+        <hr>
+<div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="kantologist",
+            disqus_url="http://kantologist.github.io/posts/data_exploration/",
+        disqus_title="data_exploration",
+        disqus_identifier="cache/posts/data_exploration.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script><script type="text/x-mathjax-config">
+            MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+            </script></article><script>var disqus_shortname="kantologist";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+            </div>
+        </div>
+        <div id="footer-dialog" class="modal fade" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Oluwafemi Azeez</h4>
+                <div>
+                    
+<img class="img-circle" style="float:left;margin:10px 20px 10px 0px;max-height:200px;" src="../../images/femi.jpg"><p>I am a philosopher in the classical sense. i.e, before it was 
+separated into various fields of studies
+</p>
+
+                </div>
+                <hr>
+</div>
+              <div class="modal-body">
+                    Contents © 2017         <a href="mailto:azeezfemi17937@yahoo.com">Oluwafemi Azeez</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+                    
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal">Ok</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="source-button">
+    <a class="btn btn-fab btn-raised btn-material-indigo" target="_blank" href="index.ipynb" title="Source">
+        <i class="mdi-file-cloud-download"></i>
+    </a>
+
+        </div>
+        <div class="kc_fab_wrapper"></div>
+</div>
+
+            <script src="../../assets/js/all-nocdn.js"></script><script src="../../assets/js/theme.js"></script><script>
+                var links = [
+                        {
+                            "bgcolor": "#F44336",
+                            "icon": "<i class='fa fa-share-square-o'></i>",
+                        },
+                        {
+                            "url": "https://twitter.com/azeezfemi17937",
+                            "bgcolor": "#55ACEE",
+                            "target": "_blank",
+                            "color": "#fffff",
+                            "icon": "<i class='fa fa-twitter'></i>",
+                        },
+                        {
+                            "url": "https://github.com/kantologist",
+                            "bgcolor": "#666666",
+                            "target": "_blank",
+                            "color": "#fffff",
+                            "icon": "<i class='fa fa-github-square'></i>",
+                        },
+                        {
+                            "url": "https://www.facebook.com/azeez.oluwafemi.73",
+                            "bgcolor": "#3B5998",
+                            "target": "_blank",
+                            "color": "#fffff",
+                            "icon": "<i class='fa fa-facebook'></i>",
+                        },
+                        {
+                            "url": "https://ng.linkedin.com/in/azeez-oluwafemi",
+                            "bgcolor": "#3B5998",
+                            "target": "_blank",
+                            "color": "#fffff",
+                            "icon": "<i class='fa fa-linkedin'></i>",
+                        },
+                ];
+
+            $(document).ready(function() {
+                // This command is used to initialize some elements and make them work properly
+                $.material.init();
+                    $('.kc_fab_wrapper').kc_fab(links);
+            });
+
+            $(window).on("resize", function() {
+                $("html, body").height($(window).height());
+                $(".main, .menu").height($(window).height() - $(".header-panel").outerHeight() - 76 ); // footer margin: $("footer.footer").outerHeight()
+                $(".posts-material").height($(window).height());
+            }).trigger("resize");
+        </script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

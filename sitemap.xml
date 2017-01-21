@@ -7,15 +7,19 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://kantologist.github.io/</loc>
-  <lastmod>2016-12-15T17:26:00Z</lastmod>
+  <lastmod>2017-01-21T10:38:00Z</lastmod>
  </url>
  <url>
   <loc>http://kantologist.github.io/2016/</loc>
   <lastmod>2016-12-15T17:26:00Z</lastmod>
  </url>
  <url>
+  <loc>http://kantologist.github.io/2017/</loc>
+  <lastmod>2017-01-21T10:38:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://kantologist.github.io/archive.html</loc>
-  <lastmod>2016-12-16T15:49:00Z</lastmod>
+  <lastmod>2017-01-21T10:38:00Z</lastmod>
  </url>
  <url>
   <loc>http://kantologist.github.io/categories/</loc>
@@ -30,7 +34,23 @@
   <lastmod>2016-12-15T15:53:00Z</lastmod>
  </url>
  <url>
+  <loc>http://kantologist.github.io/posts/basic_plotting/</loc>
+  <lastmod>2017-01-21T10:38:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://kantologist.github.io/posts/data_exploration/</loc>
+  <lastmod>2017-01-21T10:38:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://kantologist.github.io/posts/descriptive_statistics/</loc>
+  <lastmod>2017-01-21T10:38:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://kantologist.github.io/posts/my-first-blog-post/</loc>
   <lastmod>2016-12-16T15:29:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://kantologist.github.io/posts/numpy_essentials/</loc>
+  <lastmod>2017-01-21T10:38:00Z</lastmod>
  </url>
 </urlset>

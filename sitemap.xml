@@ -19,7 +19,7 @@
  </url>
  <url>
   <loc>http://kantologist.github.io/archive.html</loc>
-  <lastmod>2017-01-21T10:38:00Z</lastmod>
+  <lastmod>2017-02-02T15:28:00Z</lastmod>
  </url>
  <url>
   <loc>http://kantologist.github.io/categories/</loc>
@@ -44,6 +44,10 @@
  <url>
   <loc>http://kantologist.github.io/posts/descriptive_statistics/</loc>
   <lastmod>2017-01-21T10:38:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://kantologist.github.io/posts/introduction-to-tensorflow/</loc>
+  <lastmod>2017-02-02T15:28:00Z</lastmod>
  </url>
  <url>
   <loc>http://kantologist.github.io/posts/my-first-blog-post/</loc>

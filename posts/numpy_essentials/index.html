@@ -1,21 +1,13 @@
 <!DOCTYPE html>
-<html prefix="
-og: http://ogp.me/ns#
-article: http://ogp.me/ns/article#
-" lang="en">
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " vocab="http://ogp.me/ns" lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width">
 <title>numpy_essentials | Invent</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
 <link rel="canonical" href="http://kantologist.github.io/posts/numpy_essentials/">
-<!--[if lt IE 9]>
-            <script src="../../assets/js/html5shiv.min.js"></script>
-            <script src="../../assets/js/respond.min.js"></script>
-        <![endif]--><meta name="author" content="Oluwafemi Azeez">
-<link rel="prev" href="../my-first-blog-post/" title="My first Blog Post" type="text/html">
-<link rel="next" href="../basic_plotting/" title="basic_plotting" type="text/html">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Oluwafemi Azeez">
 <meta property="og:site_name" content="Invent">
 <meta property="og:title" content="numpy_essentials">
 <meta property="og:url" content="http://kantologist.github.io/posts/numpy_essentials/">
@@ -68,69 +60,67 @@ print type(a)
 <meta name="twitter:creator" content="@azeezfemi17937">
 </head>
 <body>
-<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    
 
-<!-- Menubar -->
+    <header id="header" class="navbar"><div class="container">
+            
+    <div class="brand">
 
-<nav class="navbar navbar-success header-panel shadow-z-3" role="navigation"><div class="container-fluid">
-        <div class="row">
-          <div class="col-xs-3">
-            <h1 class="title-blog">
-                <a href="http://kantologist.github.io/">
-                        <span id="blog-title">Invent</span>
-                    </a>
-            </h1>
-          </div>
+        <div class="brand-text">
+            <a href="http://kantologist.github.io/" title="Invent" rel="home">
+                Invent
+            </a>
         </div>
-      </div>
-<!-- /.container-fluid -->
-</nav><div class="container-fluid main" id="content" role="main">
-		
-        <div class="row">
-	
-            <div class="posts-material col-xs-12">
-	<div id="mySidenav" class="sidenav">
-	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-            <div class="col-xs-3 ">
-                <ul navbar-nav>
-<li class="withripple"><a href="../../archive.html">Archive</a></li>
-                <li class="withripple"><a href="../../categories/">Tags</a></li>
-                <li class="withripple"><a href="../../rss.xml">RSS feed</a></li>
 
-                    
-                </ul>
-<ul class="nav navbar-nav"></ul>
-</div>
-	</div>
+        <a id="btn-toggle-nav" class="navbar-toggle">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+    </div>
 
             
-		<button class="btn btn-fab btn-raised btn-material-blue btn-footer pull-left" onclick="openNav()">
-	<i class="glyphicon glyphicon-menu-hamburger"></i>
-	</button>
-		<button class="btn bmd-btn-fab btn-raised btn-material-blue btn-footer pull-right" data-toggle="modal" data-target="#footer-dialog">
-            <i class="mdi-communication-message"></i>
-        </button>
-                <div class="col-xs-12 col-md-11 content-material">
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">numpy_essentials</a></h1>
-<hr>
-<div class="metadata">
-            <span class="byline author vcard">
-                <a href=".">
-                        <img class="img-circle" src="../../images/femi.jpg" alt="icon">
-                    Oluwafemi Azeez
-                </a>
-            </span>
-            <span class="dateline">
-                <a href="." rel="bookmark"><i class="mdi-device-access-time"></i>
-                    <time class="published dt-published" datetime="2017-01-21T11:29:51+01:00" itemprop="datePublished" title="2017-01-21 11:29">2017-01-21 11:29</time></a>
-            </span>
-                <span class="commentline">            <a href="#disqus_thread" data-disqus-identifier="cache/posts/numpy_essentials.html">Comments</a>
+    <nav class="navbar-collapse collapse"><ul class="nav">
+<li><a href="../../archive.html">Archive</a></li>
+                <li><a href="../../categories/">Tags</a></li>
+                <li><a href="../../rss.xml">RSS feed</a></li>
+    
+    
+    </ul></nav>
+</div>
+    </header><div class="header-padding"> </div>
 
-</span>
+    
+    <div class="post-header">
+        <div class="container">
+            <div class="title">
+                numpy_essentials
+            </div>
         </div>
-        
-        <hr></header><div class="e-content entry-content" itemprop="articleBody text">
-    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    </div>
+
+    <div class="post-meta">
+      <div class="container">
+	<div class="meta clearfix">
+	  <div class="authordate">
+	    <time class="timeago" datetime="2017-01-21T11:29:51+01:00">2017/01/21</time>
+	    
+
+	    
+          |  
+        <a href="index.ipynb" id="sourcelink">Source</a>
+
+	  </div>
+	  <div class="post-tags">
+	  </div>
+	</div>
+      </div>
+    </div>
+    
+    
+    <div id="post-main" class="main">
+        <div class="container">
+        <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
 <div class="cell border-box-sizing text_cell rendered">
@@ -1822,18 +1812,9 @@ print type(a)
     </div>
   </div>
 
-    </div>
-    <aside class="postpromonav"><nav><ul class="pager">
-<li class="previous">
-                <a href="../my-first-blog-post/" rel="prev" title="My first Blog Post">Previous post</a>
-            </li>
-            <li class="next">
-                <a href="../basic_plotting/" rel="next" title="basic_plotting">Next post</a>
-            </li>
-        </ul></nav></aside><section class="comments"><h2>
-<i class="mdi-communication-forum"></i>Comments</h2>
-        <hr>
-<div id="disqus_thread"></div>
+            
+        
+        <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="kantologist",
             disqus_url="http://kantologist.github.io/posts/numpy_essentials/",
@@ -1852,96 +1833,48 @@ print type(a)
     <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-        </section><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script><script type="text/x-mathjax-config">
-            MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
-            </script></article><script>var disqus_shortname="kantologist";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script>
 </div>
-            </div>
-        </div>
-        <div id="footer-dialog" class="modal fade" tabindex="-1">
-          <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Oluwafemi Azeez</h4>
-                <div>
-                    
-<img class="img-circle" style="float:left;margin:10px 20px 10px 0px;max-height:200px;" src="../../images/femi.jpg"><p>I am a philosopher in the classical sense. i.e, before it was 
-separated into various fields of studies
-</p>
+    </div>
 
+    
+    <footer><div class="container">
+            <div class="social">
+                <div class="social-entry">
+                    <a href="mailto:azeezfemi17937@yahoo.com" target="_blank">
+                        <i class="fa fa-envelope-o"></i>
+                    </a>
                 </div>
-                <hr>
-</div>
-              <div class="modal-body">
-                    Contents © 2017         <a href="mailto:azeezfemi17937@yahoo.com">Oluwafemi Azeez</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
-                    
-              </div>
-              <div class="modal-footer">
-                <button class="btn btn-primary" data-dismiss="modal">Ok</button>
-              </div>
+
+                <div class="social-entry">
+                    <a href="http://twitter.com/kantologist" target="_blank">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </div>
+
+                <div class="social-entry">
+                    <a href="https://github.com/kantologist" target="_blank">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </div>
+
+                <div class="social-entry">
+                    <a href="../../rss.xml" target="_blank">
+                        <i class="fa fa-rss"></i> 
+                    </a>
+                </div>
             </div>
-          </div>
+                <div class="copyright">
+                    Contents © 2018         <a href="mailto:azeezfemi17937@yahoo.com">Oluwafemi Azeez</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+                    
+                </div>
+           
         </div>
-        <div class="source-button">
-    <a class="btn btn-fab btn-raised btn-material-indigo" target="_blank" href="index.ipynb" title="Source">
-        <i class="mdi-file-cloud-download"></i>
-    </a>
-
-        </div>
-        <div class="kc_fab_wrapper"></div>
-</div>
-
-            <script src="../../assets/js/all-nocdn.js"></script><script src="../../assets/js/theme.js"></script><script>
-                var links = [
-                        {
-                            "bgcolor": "#F44336",
-                            "icon": "<i class='fa fa-share-square-o'></i>",
-                        },
-                        {
-                            "url": "https://twitter.com/azeezfemi17937",
-                            "bgcolor": "#55ACEE",
-                            "target": "_blank",
-                            "color": "#fffff",
-                            "icon": "<i class='fa fa-twitter'></i>",
-                        },
-                        {
-                            "url": "https://github.com/kantologist",
-                            "bgcolor": "#666666",
-                            "target": "_blank",
-                            "color": "#fffff",
-                            "icon": "<i class='fa fa-github-square'></i>",
-                        },
-                        {
-                            "url": "https://www.facebook.com/azeez.oluwafemi.73",
-                            "bgcolor": "#3B5998",
-                            "target": "_blank",
-                            "color": "#fffff",
-                            "icon": "<i class='fa fa-facebook'></i>",
-                        },
-                        {
-                            "url": "https://ng.linkedin.com/in/azeez-oluwafemi",
-                            "bgcolor": "#3B5998",
-                            "target": "_blank",
-                            "color": "#fffff",
-                            "icon": "<i class='fa fa-linkedin'></i>",
-                        },
-                ];
-
-            $(document).ready(function() {
-                // This command is used to initialize some elements and make them work properly
-                $.material.init();
-                    $('.kc_fab_wrapper').kc_fab(links);
-            });
-
-            $(window).on("resize", function() {
-                $("html, body").height($(window).height());
-                $(".main, .menu").height($(window).height() - $(".header-panel").outerHeight() - 76 ); // footer margin: $("footer.footer").outerHeight()
-                $(".posts-material").height($(window).height());
-            }).trigger("resize");
-        </script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
-    moment.locale("en");
-    fancydates(0, "YYYY-MM-DD HH:mm");
-    </script><!-- end fancy dates -->
+    </footer><script src="../../assets/js/all-nocdn.js" type="text/javascript"></script>
 </body>
 </html>

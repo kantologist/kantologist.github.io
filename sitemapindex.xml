@@ -6,15 +6,11 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
-  <loc>http://kantologist.github.io/galleries/rss.xml</loc>
-  <lastmod>2017-01-21T10:38:00Z</lastmod>
- </sitemap>
- <sitemap>
   <loc>http://kantologist.github.io/rss.xml</loc>
-  <lastmod>2017-02-02T15:28:00Z</lastmod>
+  <lastmod>2018-05-01T13:10:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://kantologist.github.io/sitemap.xml</loc>
-  <lastmod>2017-02-02T15:28:00Z</lastmod>
+  <lastmod>2018-05-01T13:57:00Z</lastmod>
  </sitemap>
 </sitemapindex>

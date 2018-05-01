@@ -141,7 +141,9 @@ NAVIGATION_LINKS = {
 }
 
 # Name of the theme to use.
-THEME = "material-theme"
+# THEME = "material-theme"
+# THEME = "mdl"
+THEME = "bnw"
 
 # Primary color of your theme. This will be used to customize your theme and
 # auto-generate related colors in POSTS_SECTION_COLORS. Must be a HEX value.
@@ -178,13 +180,13 @@ POSTS = (
     ("posts/*.rst", "posts", "post.tmpl"),
     ("posts/*.txt", "posts", "post.tmpl"),
     ("posts/*.html", "posts", "post.tmpl"),
-    ("posts/*.ipynb", "posts", "post.tmpl"),	
+    ("posts/*.ipynb", "posts", "post.tmpl"),
 )
 PAGES = (
     ("pages/*.rst", "pages", "story.tmpl"),
     ("pages/*.txt", "pages", "story.tmpl"),
     ("pages/*.html", "pages", "story.tmpl"),
-    ("pages/*.ipynb", "pages", "story.tmpl"), 	
+    ("pages/*.ipynb", "pages", "story.tmpl"),
 )
 
 
@@ -1191,7 +1193,7 @@ TWITTER_CARD = {
 # If webassets is installed, bundle JS and CSS into single files to make
 # site loading faster in a HTTP/1.1 environment but is not recommended for
 # HTTP/2.0 when caching is used. Defaults to True.
-# USE_BUNDLES = True
+USE_BUNDLES = True
 
 # Plugins you don't want to use. Be careful :-)
 # DISABLED_PLUGINS = ["render_galleries"]
@@ -1245,52 +1247,98 @@ TWITTER_CARD = {
 
 BIOGRAPHY = """
 <img class="img-circle" style="float:left;margin:10px 20px 10px 0px;max-height:200px;" src="/images/femi.jpg">
-<p>I am a philosopher in the classical sense. i.e, before it was 
+<p>I am a philosopher in the classical sense. i.e, before it was
 separated into various fields of studies
 </p>
 """
+# GLOBAL_CONTEXT = {
+# 	'header_color': 'success',
+# 	"social_links": [
+#     {
+#         'bgcolor': "#F44336",
+#         'icon': "<i class='fa fa-share-square-o'></i>"
+#     },
+#     {
+#         "url": "https://twitter.com/azeezfemi17937",
+#         "bgcolor": "#55ACEE",
+#         "color": "#fffff",
+#         "icon": "<i class='fa fa-twitter'></i>",
+#         "target": "_blank"
+#     },
+#     {
+#         "url": "https://github.com/kantologist",
+#         "bgcolor": "#666666",
+#         "color": "#fffff",
+#         "icon": "<i class='fa fa-github-square'></i>",
+#         "target": "_blank"
+#     },
+#     {
+#         "url": "https://www.facebook.com/azeez.oluwafemi.73",
+#         "bgcolor": "#3B5998",
+#         "color": "#fffff",
+#         "icon": "<i class='fa fa-facebook'></i>",
+#         "target": "_blank"
+#     },
+# 	{
+#         "url": "https://ng.linkedin.com/in/azeez-oluwafemi",
+#         "bgcolor": "#3B5998",
+#         "color": "#fffff",
+#         "icon": "<i class='fa fa-linkedin'></i>",
+#         "target": "_blank"
+#     },
+#
+#     ],
+# 	'author_avatar': '/images/femi.jpg',
+#
+# 	"biography": BIOGRAPHY,
+#
+# }
+
 GLOBAL_CONTEXT = {
-	'header_color': 'success',
-	"social_links": [
-    {
-        'bgcolor': "#F44336",
-        'icon': "<i class='fa fa-share-square-o'></i>"
-    },
-    {
-        "url": "https://twitter.com/azeezfemi17937",
-        "bgcolor": "#55ACEE",
-        "color": "#fffff",
-        "icon": "<i class='fa fa-twitter'></i>",
-        "target": "_blank"
-    },
-    {
-        "url": "https://github.com/kantologist",
-        "bgcolor": "#666666",
-        "color": "#fffff",
-        "icon": "<i class='fa fa-github-square'></i>",
-        "target": "_blank"
-    },
-    {
-        "url": "https://www.facebook.com/azeez.oluwafemi.73",
-        "bgcolor": "#3B5998",
-        "color": "#fffff",
-        "icon": "<i class='fa fa-facebook'></i>",
-        "target": "_blank"
-    },
-	{
-        "url": "https://ng.linkedin.com/in/azeez-oluwafemi",
-        "bgcolor": "#3B5998",
-        "color": "#fffff",
-        "icon": "<i class='fa fa-linkedin'></i>",
-        "target": "_blank"
-    },	
-	
-    ],
-	'author_avatar': '/images/femi.jpg',
-	
-	"biography": BIOGRAPHY,
-	
+    'email': 'azeezfemi17937@yahoo.com',
+    'twitter': 'kantologist',
+    'github': 'kantologist',
 }
+
+
+# GLOBAL_CONTEXT = {
+#         "mdl__version": "1.3.0",
+#         "mdl__color_scheme": "indigo-pink",
+#         "mdl__roboto_font": False,
+#         "mdl__late_load_css": False,
+#         "mdl__cachebusting": "1",
+#         "mdl__fixed_header": False,
+#         "mdl__fixed_drawer": False,
+#         "mdl__no_drawer_button": False,
+#         "mdl__no_desktop_drawer_button": False,
+#         "mdl__multiple_header": False,
+#         "mdl__header_scroll": False,
+#         "mdl__header_waterfall": False,
+#         "mdl__header_waterfall_hide_top": False,
+#         "mdl__header_transparent": False,
+#         "mdl__header_seamed": False,
+#         "mdl__footer": "",
+#         "mdl__navigation_large_screen_only": False,
+#         "mdl__drawer_small_screen_only": False,
+#         "mdl__custom_css": False,
+#         "mdl__custom_js": False,
+#         "drawer_title": "",
+#         "drawer_logo_url": "",
+#         "drawer_show_title": "",
+#         "drawer_description": "",
+#         "drawer_note": "",
+#         "title_row_middle": False,
+#         "navigation_row_middle": False,
+#         "breadcrumb_separator": ">",
+#         "post_type": {
+#             "text": "format_align_justify",
+#         },
+#         "top_nav_header": False,
+#         "more_button_header": [
+#             ("/mobile/", "Mobile Site", "Mobile"),
+#         ],
+#         "image_plugin": "colorbox",
+#     }
 
 # Add functions here and they will be called with template
 # GLOBAL_CONTEXT as parameter when the template is about to be
